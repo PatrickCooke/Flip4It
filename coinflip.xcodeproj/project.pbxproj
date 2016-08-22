@@ -12,6 +12,8 @@
 		438EA7281D6797FF00B46FA6 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 438EA7261D6797FF00B46FA6 /* Main.storyboard */; };
 		438EA72A1D6797FF00B46FA6 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 438EA7291D6797FF00B46FA6 /* Assets.xcassets */; };
 		438EA72D1D6797FF00B46FA6 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 438EA72B1D6797FF00B46FA6 /* LaunchScreen.storyboard */; };
+		438EA7351D6B5A3600B46FA6 /* Coin.swift in Sources */ = {isa = PBXBuildFile; fileRef = 438EA7341D6B5A3600B46FA6 /* Coin.swift */; };
+		438EA7371D6B72AB00B46FA6 /* CoinChooserViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 438EA7361D6B72AB00B46FA6 /* CoinChooserViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -22,6 +24,8 @@
 		438EA7291D6797FF00B46FA6 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		438EA72C1D6797FF00B46FA6 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		438EA72E1D6797FF00B46FA6 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		438EA7341D6B5A3600B46FA6 /* Coin.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Coin.swift; sourceTree = "<group>"; };
+		438EA7361D6B72AB00B46FA6 /* CoinChooserViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CoinChooserViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -56,6 +60,8 @@
 			children = (
 				438EA7221D6797FF00B46FA6 /* AppDelegate.swift */,
 				438EA7241D6797FF00B46FA6 /* ViewController.swift */,
+				438EA7361D6B72AB00B46FA6 /* CoinChooserViewController.swift */,
+				438EA7341D6B5A3600B46FA6 /* Coin.swift */,
 				438EA7261D6797FF00B46FA6 /* Main.storyboard */,
 				438EA7291D6797FF00B46FA6 /* Assets.xcassets */,
 				438EA72B1D6797FF00B46FA6 /* LaunchScreen.storyboard */,
@@ -135,6 +141,8 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				438EA7351D6B5A3600B46FA6 /* Coin.swift in Sources */,
+				438EA7371D6B72AB00B46FA6 /* CoinChooserViewController.swift in Sources */,
 				438EA7251D6797FF00B46FA6 /* ViewController.swift in Sources */,
 				438EA7231D6797FF00B46FA6 /* AppDelegate.swift in Sources */,
 			);
