@@ -28,38 +28,55 @@ class CoinChooserViewController: UIViewController, UITableViewDelegate, UITableV
         let cell = tableView.dequeueReusableCellWithIdentifier("cell", forIndexPath: indexPath)
         let selectedCoin = coinArray[indexPath.row]
         cell.textLabel!.text = selectedCoin
-        //cell.imageView?.image = UIImage(named: coinFrontImageArray[indexPath.row])
-        
+        cell.imageView?.image = UIImage(named: coinFrontImageArray[indexPath.row])
+        if let currentCoin = coinFaces.coinFront {
+            if currentCoin.containsString(selectedCoin.lowercaseString) {
+                cell.backgroundColor = UIColor.redColor()
+            } else {
+                cell.backgroundColor = UIColor.whiteColor()
+            }
+        }
         return cell
     }
     
     func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
-    
-        coinFaces.coinFront = coinFrontImageArray[indexPath.row]
-        coinFaces.coinBack = coinBackImageArray[indexPath.row]
         coinFront = coinFrontImageArray[indexPath.row]
         coinBack = coinBackImageArray[indexPath.row]
-        print("picked coin face: \(coinFront)")
+        setFront(coinFront)
+        setBack(coinBack)
+        
+        print("picked coin face: \(coinFaces.coinFront)")
         NSNotificationCenter.defaultCenter().postNotification(NSNotification(name: "coin", object: nil))
     }
     
     //MARK: - Interactivity Method
     
-    func setCoin () {
-        
+    func setFront(front: String) -> String {
+        coinFaces.coinFront = front
+        print("picked coin face: \(coinFaces.coinFront)")
+        return coinFaces.coinFront
+    }
+    
+    func setBack (back: String) -> String {
+        coinFaces.coinBack = back
+        return coinFaces.coinBack
     }
     
     //MARK: - Lifecycle Methods
     
     override func viewDidLoad() {
         super.viewDidLoad()
-
+        
         // Do any additional setup after loading the view.
     }
-
+    
+    override func viewDidDisappear(animated: Bool) {
+        super.viewDidDisappear(animated)
+        print("picked coin face: \(coinFaces.coinFront)")
+    }
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
     }
-
+    
 }

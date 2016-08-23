@@ -63,9 +63,9 @@ class ViewController: UIViewController {
             self.tailsSquare.image = UIImage(named: coinFaces.coinBack!)
         }
         
-        
         print("generated \(coinFaces.coinFront)")
         self.container.addSubview(self.headsSquare)
+        
     }
     
     //MARK: - Shake for Flip method
@@ -120,13 +120,14 @@ class ViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        createframes()
+        //createframes()
         //createButton() - No longer needed
         tapGesture()
     }
     
     override func viewWillAppear(animated: Bool) {
         super.viewWillAppear(animated)
+        createframes()
         NSNotificationCenter.defaultCenter().addObserver(self, selector: #selector(createframes), name: "coin", object: nil)
     }
     
