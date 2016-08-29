@@ -12,7 +12,7 @@ class CoinChooserViewController: UIViewController, UITableViewDelegate, UITableV
     static let sharedInstance = CoinChooserViewController()
     var coinFront: String!
     var coinBack: String!
-    let coinFaces = Coin()
+    let coinFaces = Coin.sharedInstance
     let VC = ViewController()
     let coinArray = ["Penny", "Nickel", "Dime", "Quarter", "Half Dollar"]
     let coinFrontImageArray = ["pennyFront", "nickelFront", "dimeFront", "quarterFront", "halfdollarFront"]
@@ -31,7 +31,7 @@ class CoinChooserViewController: UIViewController, UITableViewDelegate, UITableV
         cell.imageView?.image = UIImage(named: coinFrontImageArray[indexPath.row])
         if let currentCoin = coinFaces.coinFront {
             if currentCoin.containsString(selectedCoin.lowercaseString) {
-                cell.backgroundColor = UIColor.redColor()
+                cell.backgroundColor = UIColor.lightGrayColor()
             } else {
                 cell.backgroundColor = UIColor.whiteColor()
             }
@@ -46,7 +46,7 @@ class CoinChooserViewController: UIViewController, UITableViewDelegate, UITableV
         setBack(coinBack)
         
         print("picked coin face: \(coinFaces.coinFront)")
-        NSNotificationCenter.defaultCenter().postNotification(NSNotification(name: "coin", object: nil))
+        self.navigationController?.popViewControllerAnimated(true)
     }
     
     //MARK: - Interactivity Method
@@ -66,8 +66,6 @@ class CoinChooserViewController: UIViewController, UITableViewDelegate, UITableV
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        
-        // Do any additional setup after loading the view.
     }
     
     override func viewDidDisappear(animated: Bool) {
@@ -76,7 +74,6 @@ class CoinChooserViewController: UIViewController, UITableViewDelegate, UITableV
     }
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
-        // Dispose of any resources that can be recreated.
     }
     
 }

@@ -15,7 +15,7 @@ class ViewController: UIViewController {
     let tailsSquare = UIImageView()
     let actionButton = UIButton()
     let results = UILabel()
-    let coinFaces = Coin()
+    let coinFaces = Coin.sharedInstance
     
     //MARK: - Create Assets
     
@@ -58,6 +58,8 @@ class ViewController: UIViewController {
         if coinFaces.coinFront == nil {
             self.headsSquare.image = UIImage(named: "quarterFront")
             self.tailsSquare.image = UIImage(named: "quarterBack")
+            coinFaces.coinFront = "quarterFront"
+            coinFaces.coinBack = "quarterBack"
         } else {
             self.headsSquare.image = UIImage(named: coinFaces.coinFront!)
             self.tailsSquare.image = UIImage(named: coinFaces.coinBack!)
@@ -87,33 +89,42 @@ class ViewController: UIViewController {
     
     //MARK: - Flip Coin Method
     
+    var totalFlips = 1
+    var flipCount = 0
+    
     @IBAction func animateButtonTapped() {
+        flipCount = 0
         let RandNumb = drand48()
-        let totalFlips = Int(RandNumb * 10)
-        
-        for flipCount in 0...totalFlips {
-            print("flip #\(flipCount)")
-            animate()
-        }
-        if ((self.headsSquare.superview) != nil) {
-            print("heads!")
-            self.results.text = "Heads!"
-        } else {
-            print("tails")
-            self.results.text = "Tails!"
-        }
+        totalFlips = Int(RandNumb * 10)
+        print("Flip Count \(totalFlips)")
+        animate()
+
+//        if ((self.headsSquare.superview) != nil) {
+//            print("heads!")
+//            self.results.text = "Heads!"
+//        } else {
+//            print("tails")
+//            self.results.text = "Tails!"
+//        }
     }
     
     func animate() {
-        var views : (frontView: UIView, backView: UIView)
-        if((self.headsSquare.superview) != nil){
-            views = (frontView: self.headsSquare, backView: self.tailsSquare)
+        if flipCount <= totalFlips {
+            flipCount += 1
+            var views : (frontView: UIView, backView: UIView)
+            if((self.headsSquare.superview) != nil){
+                views = (frontView: self.headsSquare, backView: self.tailsSquare)
+            }
+            else {
+                views = (frontView: self.tailsSquare, backView: self.headsSquare)
+            }
+            let transitionOptions = UIViewAnimationOptions.TransitionFlipFromLeft
+            UIView.transitionFromView(views.frontView, toView: views.backView, duration: 0.2, options: transitionOptions, completion: { (complete) in
+                print("Loop \(self.flipCount)")
+                self.animate()
+            })
+//            UIView.transitionFromView(views.frontView, toView: views.backView, duration: 0.2, options: transitionOptions, completion:nil)
         }
-        else {
-            views = (frontView: self.tailsSquare, backView: self.headsSquare)
-        }
-        let transitionOptions = UIViewAnimationOptions.TransitionFlipFromLeft
-        UIView.transitionFromView(views.frontView, toView: views.backView, duration: 0.2, options: transitionOptions, completion:nil)
     }
     
     //MARK: Lifecycle Methods
@@ -128,7 +139,6 @@ class ViewController: UIViewController {
     override func viewWillAppear(animated: Bool) {
         super.viewWillAppear(animated)
         createframes()
-        NSNotificationCenter.defaultCenter().addObserver(self, selector: #selector(createframes), name: "coin", object: nil)
     }
     
     override func didReceiveMemoryWarning() {
