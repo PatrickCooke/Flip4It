@@ -49,7 +49,7 @@ class ViewController: UIViewController {
             self.headsSquare.image = UIImage(named: coinFaces.coinFront!)
             self.tailsSquare.image = UIImage(named: coinFaces.coinBack!)
         }
-        print("generated \(coinFaces.coinFront)")
+//        print("generated \(coinFaces.coinFront)")
         self.container.addSubview(self.headsSquare)
         
     }
@@ -80,7 +80,7 @@ class ViewController: UIViewController {
         flipCount = 0
         let RandNumb = drand48()
         totalFlips = Int(RandNumb * 10)
-        print("Flip Count \(totalFlips)")
+//        print("Flip Count \(totalFlips)")
         animate()
     }
     
@@ -96,7 +96,7 @@ class ViewController: UIViewController {
             }
             let transitionOptions = UIViewAnimationOptions.TransitionFlipFromLeft
             UIView.transitionFromView(views.frontView, toView: views.backView, duration: 0.2, options: transitionOptions, completion: { (complete) in
-                print("Loop \(self.flipCount)")
+//                print("Loop \(self.flipCount)")
                 self.animate()
             })
         }
