@@ -10,7 +10,7 @@
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
-        <!--Flip the Coin-->
+        <!--Coin Flipper-->
         <scene sceneID="tne-QT-ifu">
             <objects>
                 <viewController id="BYZ-38-t0r" customClass="ViewController" customModule="coinflip" customModuleProvider="target" sceneMemberID="viewController">
@@ -23,8 +23,8 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                     </view>
-                    <navigationItem key="navigationItem" title="Flip the Coin" id="zfw-EZ-LCW">
-                        <barButtonItem key="rightBarButtonItem" title="Coin" id="hsV-cS-iHV">
+                    <navigationItem key="navigationItem" title="Coin Flipper" id="zfw-EZ-LCW">
+                        <barButtonItem key="rightBarButtonItem" title="Coin Picker" id="hsV-cS-iHV">
                             <connections>
                                 <segue destination="Kmp-Gk-jYX" kind="show" id="4lx-PK-Bow"/>
                             </connections>
@@ -35,7 +35,7 @@
             </objects>
             <point key="canvasLocation" x="916" y="337"/>
         </scene>
-        <!--Settings-->
+        <!--Coin Picker-->
         <scene sceneID="4kN-K9-pvQ">
             <objects>
                 <viewController id="Kmp-Gk-jYX" customClass="CoinChooserViewController" customModule="coinflip" customModuleProvider="target" sceneMemberID="viewController">
@@ -108,7 +108,7 @@
                             <constraint firstItem="o9e-k2-iNn" firstAttribute="leading" secondItem="ylC-Yh-L0D" secondAttribute="leadingMargin" constant="-16" id="wzJ-fK-Hdl"/>
                         </constraints>
                     </view>
-                    <navigationItem key="navigationItem" title="Settings" id="rW9-bY-S8v"/>
+                    <navigationItem key="navigationItem" title="Coin Picker" id="rW9-bY-S8v"/>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="qvm-lz-SiK" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
