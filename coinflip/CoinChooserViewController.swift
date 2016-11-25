@@ -13,7 +13,6 @@ class CoinChooserViewController: UIViewController, UITableViewDelegate, UITableV
     var coinFront: String!
     var coinBack: String!
     let coinFaces = Coin.sharedInstance
-    let VC = ViewController()
     let coinArray = ["Penny", "Nickel", "Dime", "Quarter", "Half Dollar"]
     let coinFrontImageArray = ["pennyFront", "nickelFront", "dimeFront", "quarterFront", "halfdollarFront"]
     let coinBackImageArray = ["pennyBack", "nickelBack", "dimeBack", "quarterBack", "halfdollarBack"]
@@ -45,7 +44,7 @@ class CoinChooserViewController: UIViewController, UITableViewDelegate, UITableV
         setFront(coinFront)
         setBack(coinBack)
         
-        print("picked coin face: \(coinFaces.coinFront)")
+//        print("picked coin face: \(coinFaces.coinFront)")
         self.navigationController?.popViewControllerAnimated(true)
     }
     
@@ -53,7 +52,7 @@ class CoinChooserViewController: UIViewController, UITableViewDelegate, UITableV
     
     func setFront(front: String) -> String {
         coinFaces.coinFront = front
-        print("picked coin face: \(coinFaces.coinFront)")
+//        print("picked coin face: \(coinFaces.coinFront)")
         return coinFaces.coinFront
     }
     
@@ -70,7 +69,6 @@ class CoinChooserViewController: UIViewController, UITableViewDelegate, UITableV
     
     override func viewDidDisappear(animated: Bool) {
         super.viewDidDisappear(animated)
-        print("picked coin face: \(coinFaces.coinFront)")
     }
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()

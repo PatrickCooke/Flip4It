@@ -19,30 +19,15 @@ class ViewController: UIViewController {
     
     //MARK: - Create Assets
     
-    func createButton() {
-        //No longer needed, added a guesture method which responds to a tap anywhere on screen
-        
-        let width = self.view.bounds.width
-        let buttonY =  self.view.bounds.height - 50
-        self.actionButton.frame = CGRect(x: 0, y: buttonY, width: width, height: 44)
-        self.actionButton.backgroundColor = UIColor.blueColor()
-        self.actionButton.titleLabel?.textColor = UIColor.whiteColor()
-        self.actionButton.setTitle("Flip", forState: .Normal)
-        self.actionButton.setTitleColor(UIColor.whiteColor(), forState: .Normal)
-        self.actionButton.layer.cornerRadius = 5.0
-        self.actionButton.addTarget(self, action: #selector(animateButtonTapped), forControlEvents: .TouchUpInside)
-        self.view.addSubview(actionButton)
-        
-    }
-    
     func createframes() {
+    //create coin container
         let width = self.view.bounds.width
         let height = self.view.bounds.height - 40
         self.container.frame = CGRect(x: 0, y: 0, width: width, height: height)
         container.backgroundColor = UIColor.clearColor()
         self.view.addSubview(container)
         
-        
+    //create coin
         let resulty = self.container.frame.height
         self.results.frame = CGRect(x: 0, y: resulty, width: width, height: 40)
         results.textAlignment = .Center
@@ -64,7 +49,6 @@ class ViewController: UIViewController {
             self.headsSquare.image = UIImage(named: coinFaces.coinFront!)
             self.tailsSquare.image = UIImage(named: coinFaces.coinBack!)
         }
-        
         print("generated \(coinFaces.coinFront)")
         self.container.addSubview(self.headsSquare)
         
@@ -98,14 +82,6 @@ class ViewController: UIViewController {
         totalFlips = Int(RandNumb * 10)
         print("Flip Count \(totalFlips)")
         animate()
-
-//        if ((self.headsSquare.superview) != nil) {
-//            print("heads!")
-//            self.results.text = "Heads!"
-//        } else {
-//            print("tails")
-//            self.results.text = "Tails!"
-//        }
     }
     
     func animate() {
@@ -123,7 +99,6 @@ class ViewController: UIViewController {
                 print("Loop \(self.flipCount)")
                 self.animate()
             })
-//            UIView.transitionFromView(views.frontView, toView: views.backView, duration: 0.2, options: transitionOptions, completion:nil)
         }
     }
     
@@ -131,8 +106,6 @@ class ViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        //createframes()
-        //createButton() - No longer needed
         tapGesture()
     }
     
